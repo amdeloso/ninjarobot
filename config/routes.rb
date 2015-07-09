@@ -1,4 +1,4 @@
 PIS::Application.routes.draw do
- resources :patient
- root 'patient#index'
+ resources :patients
+ root 'patients#index'
 end

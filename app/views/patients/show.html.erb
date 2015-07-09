@@ -1,0 +1,5 @@
+<h1>Welcome!	 <%= @patient.lname << ', ' << @patient.fname << ' ' << @patient.mi %></h1>
+<p> <%= @patient.address %></p>
+<%= link_to "Edit", edit_patient_path(@patient) %>
+<%= link_to "Delete", patient_path(@patient), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Home", root_path %>
