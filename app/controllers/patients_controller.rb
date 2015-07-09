@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
  before_action :find_patient, only: [:show, :edit, :update, :destroy]
+ before_action :authenticate_user!, except: [:index, :show]
 
  def index
  	@patient = Patient.all.order("created_at DESC")
@@ -10,11 +11,11 @@ class PatientsController < ApplicationController
  end
 
  def new
- 	@patient = Patient.new
+ 	@patient = current_user.patients.build
  end
 
  def create
- 	@patient = Patient.create(patient_params)
+ 	@patient = current_user.patients.build(patient_params)
  	if @patient.save
  		redirect_to @patient
  	else
