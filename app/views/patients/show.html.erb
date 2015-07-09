@@ -1,3 +1,4 @@
+<%= image_tag @patient.image.url(:medium) %>
 <h1>Welcome!	 <%= @patient.lname << ', ' << @patient.fname << ' ' << @patient.mi %></h1>
 <p> <%= @patient.address %></p>
 <%= link_to "Edit", edit_patient_path(@patient) %>
