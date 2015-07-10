@@ -1,21 +1,21 @@
 class PatientsController < ApplicationController
  before_action :find_patient, only: [:show, :edit, :update, :destroy]
- before_action :authenticate_user!, except: [:index, :show]
+ before_action :authenticate_user!
 
  def index
- 	@patient = Patient.all.order("created_at DESC")
+ 	@patient = Patient.all
  end
 
  def show
-
+ 	@diagnosis = Diagnosis.where(patient_id: @patient)
  end
 
  def new
- 	@patient = current_user.patients.build
+ 	@patient = current_user.patient.build
  end
 
  def create
- 	@patient = current_user.patients.build(patient_params)
+ 	@patient = current_user.patient.build(patient_params)
  	if @patient.save
  		redirect_to @patient
  	else

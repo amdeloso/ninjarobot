@@ -1,0 +1,21 @@
+h2 {
+	font: normal 16px tahoma;
+
+
+}
+
+body {
+    background-color: #d0e4fe;
+}
+
+p {
+    font-family: "Arial";
+    font-size: 20px;
+}
+
+
+table {
+    font-family: "Arial";
+    font-size: 16px;
+    border: 1px solid;
+}

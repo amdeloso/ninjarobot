@@ -1,6 +1,15 @@
 <%= image_tag @patient.image.url(:medium) %>
 <h1>Welcome!	 <%= @patient.lname << ', ' << @patient.fname << ' ' << @patient.mi %></h1>
 <p> <%= @patient.address %></p>
+
+<h2 class="diagnosis_count"><%= pluralize(@patient.diagnosis.count, "Diagnosis") %>
+<%= @diagnosis.each do |diagnosis| %>
+	<p id="username"><%= diagnosis.user.name %></p>
+	<p id="content"><%= diagnosis.user.content %></p>
+<% end %>
+<% render 'diagnosis/form' %>
+
+
 <%= link_to "Edit", edit_patient_path(@patient) %>
 <%= link_to "Delete", patient_path(@patient), method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to "Home", root_path %>

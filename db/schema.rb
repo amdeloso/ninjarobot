@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709074723) do
+ActiveRecord::Schema.define(version: 20150709080118) do
+
+  create_table "diagnoses", force: true do |t|
+    t.text     "content"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "diagnoses", ["post_id"], name: "index_diagnoses_on_post_id", using: :btree
+  add_index "diagnoses", ["user_id"], name: "index_diagnoses_on_user_id", using: :btree
 
   create_table "patients", force: true do |t|
     t.string   "lname"

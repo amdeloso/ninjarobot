@@ -1,7 +1,29 @@
-<% @patient.each do |patient| %>
-	<%= link_to (image_tag patient.image.url(:small)), patient %>
-	<h2><%= link_to patient.lname, patient %></h2>
-<% end %>
+<h1>List of Patients</h1>
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Lastname</th>
+			<th>Firstanme</th>
+			<th>MI</th>
+			<th>Address</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @patient.each do |patient| %>
+		<tr>
+			<td><%= patient.id %></td>
+			<td><%= link_to patient.lname, patient %></td>
+			<td><%= patient.fname %></td>
+			<td><%= patient.mi %></td>
+			<td><%= patient.address %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br />
+<br />
 
 <%= link_to "Add Patient", new_patient_path %>
 
